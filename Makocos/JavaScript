@@ -1,0 +1,49 @@
+// cart.js
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cart = [];
+  const cartList = document.getElementById("cart-list");
+  const totalPrice = document.getElementById("total-price");
+  const receiptBtn = document.getElementById("generate-receipt");
+
+  document.querySelectorAll(".add-to-cart").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = {
+        name: btn.dataset.name,
+        price: parseInt(btn.dataset.price, 10),
+      };
+      cart.push(item);
+      updateCart();
+    });
+  });
+
+  function updateCart() {
+    cartList.innerHTML = "";
+    let total = 0;
+    cart.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - $${item.price}`;
+      cartList.appendChild(li);
+      total += item.price;
+    });
+    totalPrice.textContent = `$${total}`;
+  }
+
+  receiptBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("El carrito está vacío.");
+      return;
+    }
+
+    let receiptText = "\u2605 RECIBO MAKOCOS FAST FOOD \u2605\n\n";
+    cart.forEach((item, idx) => {
+      receiptText += `${idx + 1}. ${item.name} - $${item.price}\n`;
+    });
+    receiptText += `\nTOTAL: ${totalPrice.textContent}`;
+
+    const receiptWindow = window.open("", "_blank");
+    receiptWindow.document.write(`<pre>${receiptText}</pre>`);
+    receiptWindow.document.close();
+    receiptWindow.print();
+  });
+});

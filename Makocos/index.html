@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makoco's Fast Food</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <h1>Makoco's Fast Food</h1>
+    <p>Servicio a domicilio: +57 3023780417</p>
+  </header>
+  <main class="menu">
+    <section class="item">
+      <img src="images/chuzopan_pollo.jpg" alt="Chuzopan de Pollo">
+      <h2>$8500</h2>
+      <p>Chuzopan de Pollo<br>Pan + pechuga + papita chongo + salsas + queso + tocineta + lechuga</p>
+    </section>
+    <section class="item">
+      <img src="images/chuzopan_chorizo.jpg" alt="Chuzopan Chorizo">
+      <h2>$7500</h2>
+      <p>Chuzopan Chorizo<br>Pan + Chorizo + papita chongo + salsas + queso + tocineta + lechuga</p>
+    </section>
+    <section class="item">
+      <img src="images/chuzopan_butifarra.jpg" alt="Chuzopan Butifarra">
+      <h2>$7500</h2>
+      <p>Chuzopan Butifarra<br>Pan + butifarra + papita chongo + salsas + queso + tocineta + lechuga</p>
+    </section>
+    <section class="item">
+      <img src="images/chuzopan_4_carnes.jpg" alt="Chuzopan 4 Carnes">
+      <h2>$12500</h2>
+      <p>Chuzopan de 4 Carnes<br>Pan + butifarra + chorizo + pechuga + carne de res + papita chongo + salsas + queso + tocineta + lechuga</p>
+    </section>
+    <section class="item">
+      <img src="images/hamburguesa_clasica.jpg" alt="Hamburguesa Clásica">
+      <h2>$14000</h2>
+      <p>Hamburguesa Clásica<br>Pan + carne de Res + cerdo + cebolla + tomate + queso + lechuga + salsas</p>
+    </section>
+    <section class="item">
+      <img src="images/mi_taganga.jpg" alt="Hamburguesa Mi Taganga">
+      <h2>$24000</h2>
+      <p>Hamburguesa Mi Taganga<br>Pan + carne + cebolla encurtida + tomate verde + papita ripiada + doritos + queso + salsas + lechuga + tocineta</p>
+    </section>
+    <section class="item">
+      <img src="images/hotdog_peq.jpg" alt="Hot Dog Cebollero Pequeño">
+      <h2>$7000</h2>
+      <p>Hot Dog Cebollero Pequeño<br>Pan + salchicha + cebolla + papita chongo + queso + salsa</p>
+    </section>
+    <section class="item">
+      <img src="images/hotdog_grande.jpg" alt="Hot Dog Cebollero Grande">
+      <h2>$8000</h2>
+      <p>Hot Dog Cebollero Grande<br>Pan + salchicha + cebolla + papa chongo + queso + salsa</p>
+    </section>
+    <section class="item">
+      <img src="images/hotdog_especial.jpg" alt="Hot Dog Especial">
+      <h2>$14000</h2>
+      <p>Hot Dog Especial<br>Pan + Chorizo + pechuga + butifarra + maíz + salchicha + cebolla + papita chongo + queso + salsas + tocineta</p>
+    </section>
+    <section class="item">
+      <img src="images/desgranado_arepa.jpg" alt="Desgranado de Arepa">
+      <h2>$14000</h2>
+      <p>Desgranado de Arepa<br>Arepa antioqueña + pechuga + maíz + salchicha + papita chongo + queso + salsas</p>
+    </section>
+    <section class="item">
+      <img src="images/arepa_4_carnes.jpg" alt="Arepa 4 Carnes">
+      <h2>$16000</h2>
+      <p>Arepa Degranada 4 Carnes<br>Arepa antioqueña + pechuga + carne de res + chorizo + butifarra + maíz + cebolla + papas chongo + queso + salsas</p>
+    </section>
+    <section class="item">
+      <img src="images/desgranado_especial.jpg" alt="Desgranado Especial">
+      <h2>$19000</h2>
+      <p>Desgranado Especial<br>Pizza individual + papas y refresco</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div>
+      <p>Pedidos por Nequi:</p>
+      <p>+57 301 4557649 / +57 3023780417</p>
+    </div>
+    <div>
+      <p>Horario: 5:00 A.M. a 11:00 P.M.</p>
+    </div>
+    <div>
+      <a href="https://facebook.com" target="_blank">Facebook</a> |
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </footer>
+  <a class="whatsapp-button" href="https://wa.me/573023780417" target="_blank">
+    <img src="images/wpp.webp" alt="WhatsApp">
+  </a>
+  
+</body>
+<section class="cart-container">
+  <ul id="cart-list" class="cart-list"></ul>
+  <div class="total">Total: <span id="total-price">$0</span></div>
+  <button id="generate-receipt" class="receipt-button">Generar Recibo</button>
+</section>
+<script src="cart.js"></script>
+
+<button class="add-to-cart" data-name="NOMBRE_PRODUCTO" data-price="PRECIO">Agregar al carrito</button>
+
+</html>
