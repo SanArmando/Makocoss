@@ -164,4 +164,26 @@ button {-height: 1.6;
       height: 180px;
     }
   }
-  
+
+/* Centrar el mapa y el texto en la página */
+.map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  text-align: center;
+}
+
+.map-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.map-container iframe {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}

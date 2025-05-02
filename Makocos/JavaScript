@@ -1,71 +1,84 @@
 /* Mejora de contraste para accesibilidad */
 .cart-container {
-  background-color: #ffb100; /* Fondo amarillo */=> {
+  background-color: #ffb100; /* Fondo amarillo */
   color: #333; /* Texto oscuro para mejor contraste */
-} const cartList = document.getElementById("cart-list");
-  const totalPrice = document.getElementById("total-price");
-/* Prefijos para compatibilidad */lementById("generate-receipt");
+}
+
 button {
   -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;;
-  -o-transition: all 0.3s ease;dataset.price, 10);
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-}   if (!name || isNaN(price)) {
-      console.error("Datos inválidos para el producto");
-      return;
-    }
+}
 
-    const item = { name, price };
-    cart.push(item);
+const cartList = document.getElementById("cart-list");
+const totalPrice = document.getElementById("total-price");
+const receiptBtn = document.getElementById("generate-receipt");
+let cart = [];
+
+// Validación de datos antes de agregar al carrito
+const addToCart = (btn) => {
+  const name = btn.dataset.name;
+  const price = parseInt(btn.dataset.price, 10);
+
+  if (!name || isNaN(price)) {
+    console.error("Datos inválidos para el producto");
+    return;
+  }
+
+  const item = { name, price };
+  cart.push(item);
+  updateCartUI();
+};
+
+// Persistencia del carrito usando localStorage
+const saveCartToLocalStorage = () => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
+const loadCartFromLocalStorage = () => {
+  const savedCart = localStorage.getItem("cart");
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
     updateCartUI();
-  };
+  }
+};
 
-  const saveCartToLocalStorage = () => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  };
-
-  const loadCartFromLocalStorage = () => {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      cart = JSON.parse(savedCart);
-      updateCartUI();
-    }
-  };
-
-  const updateCartUI = () => {
-    cartList.innerHTML = "";
-    let total = 0;
-    cart.forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = `${item.name} - $${item.price}`;
-      cartList.appendChild(li);
-      total += item.price;
-    });
-    totalPrice.textContent = `$${total}`;
-    saveCartToLocalStorage();
-  };
-
-  document.querySelectorAll(".add-to-cart").forEach((btn) => {
-    btn.addEventListener("click", () => addToCart(btn));
+// Guardar el carrito cada vez que se actualiza
+const updateCartUI = () => {
+  cartList.innerHTML = "";
+  let total = 0;
+  cart.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - $${item.price}`;
+    cartList.appendChild(li);
+    total += item.price;
   });
+  totalPrice.textContent = `$${total}`;
+  saveCartToLocalStorage();
+};
 
-  receiptBtn.addEventListener("click", () => {
-    if (cart.length === 0) {
-      alert("El carrito está vacío.");
-      return;
-    }
-
-    let receiptText = "\u2605 RECIBO MAKOCOS FAST FOOD \u2605\n\n";
-    cart.forEach((item, idx) => {
-      receiptText += `${idx + 1}. ${item.name} - $${item.price}\n`;
-    });
-    receiptText += `\nTOTAL: ${totalPrice.textContent}`;
-
-    const receiptWindow = window.open("", "_blank");
-    receiptWindow.document.write(`<pre>${receiptText}</pre>`);
-    receiptWindow.document.close();
-    receiptWindow.print();
-  });
-
-  loadCartFromLocalStorage();
+document.querySelectorAll(".add-to-cart").forEach((btn) => {
+  btn.addEventListener("click", () => addToCart(btn));
 });
+
+receiptBtn.addEventListener("click", () => {
+  if (cart.length === 0) {
+    alert("El carrito está vacío.");
+    return;
+  }
+
+  let receiptText = "\u2605 RECIBO MAKOCOS FAST FOOD \u2605\n\n";
+  cart.forEach((item, idx) => {
+    receiptText += `${idx + 1}. ${item.name} - $${item.price}\n`;
+  });
+  receiptText += `\nTOTAL: ${totalPrice.textContent}`;
+
+  const receiptWindow = window.open("", "_blank");
+  receiptWindow.document.write(`<pre>${receiptText}</pre>`);
+  receiptWindow.document.close();
+  receiptWindow.print();
+});
+
+// Llamar a la función al cargar la página
+document.addEventListener("DOMContentLoaded", loadCartFromLocalStorage);
