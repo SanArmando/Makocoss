@@ -7,9 +7,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Actualización del encabezado -->
   <header class="header">
-    <h1>🍔Makoco's Fast Food</h1>
-    <p>Servicio a domicilio: +57 3023780417</p>
+    <h1 class="custom-title">
+      <span class="highlight">M</span>akoco's
+    </h1>
+    <p class="subtitle">Fast food 🍔</p>
+    <p class="description">Comida Con La Más Alta Calidad De Santa Marta</p>
   </header>
   <main class="menu">
     <section class="item">
@@ -86,19 +90,32 @@
     </section>
   </main>
 
-  <section class="cart-container">
-    <ul id="cart-list" class="cart-list"></ul>
-    <div class="total">Total: <span id="total-price">$0</span></div>
-    <button id="generate-receipt" class="receipt-button">Generar Recibo</button>
+  <section class="menu">
+    <div class="menu-item">
+      <p>Producto 1 - $10.50</p>
+      <button class="add-to-cart" data-name="Producto 1" data-price="10.50">Agregar al carrito</button>
+    </div>
+    <div class="menu-item">
+      <p>Producto 2 - $20.00</p>
+      <button class="add-to-cart" data-name="Producto 2" data-price="20.00">Agregar al carrito</button>
+    </div>
+    <div class="menu-item">
+      <p>Producto 3 - $15.75</p>
+      <button class="add-to-cart" data-name="Producto 3" data-price="15.75">Agregar al carrito</button>
+    </div>
   </section>
+
+  <!-- Contenedor fijo del carrito -->
+  <aside class="cart">
+    <h2>Carrito de Compras</h2>
+    <ul id="cart-list"></ul>
+    <p id="total-price">Total: $0.00</p>
+  </aside>
 
   <section class="map-container">
     <h2>Encuéntranos aquí</h2>
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d215.92744466541268!2d-74.16660513726256!3d11.228559715240163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sco!4v1746162199298!5m2!1ses!2sco" 
-      width="800" 
-      height="600" 
-      style="border:0;" 
       allowfullscreen="" 
       loading="lazy" 
       referrerpolicy="no-referrer-when-downgrade">
@@ -120,7 +137,7 @@
   </footer>
 
   <a class="whatsapp-button" href="https://wa.me/573023780417" target="_blank">
-    <img src="images/Logo,wpp.jpg" alt="WhatsApp">
+    <img src="images/wwpp.png" alt="WhatsApp">
   </a>
   <script src="cart.js"></script>
 </body>

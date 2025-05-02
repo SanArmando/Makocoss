@@ -1,29 +1,69 @@
 /* Mejora de contraste para accesibilidad */
 .cart-container {
-  background-color: #ffb100; /* Fondo amarillo */
+  background-color: #000000; /* Fondo amarillo */
   color: #333; /* Texto oscuro para mejor contraste */
 }   margin: 0;
     background-color: #0f0f0f;
 /* Prefijos para compatibilidad */
-button {-height: 1.6;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
+/* Botones */
+button {
+  height: 1.6rem;
+  background-color: #ffb100;
+  color: #000;
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-}   background-color: #ffb100;
-    color: #000;
-    text-align: center;
-    padding: 1rem 0;
-    font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #ffc933;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
+
+  .nav-menu a {
+    margin: 0; /* Elimina el margen horizontal */
+  }
+}
   
+  /* Estilo del menú */
   .menu {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    padding: 2rem;
-    background: #111;
+    padding: 20px;
+    background: #111; /* Fondo oscuro */
+  }
+  
+  .menu-item {
+    background: #222; /* Fondo de los elementos */
+    color: #fff; /* Texto blanco */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-item button {
+    margin-top: 10px;
+    background-color: #ffb100;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .menu-item button:hover {
+    background-color: #ffc933;
   }
   
   .item {
@@ -117,20 +157,30 @@ button {-height: 1.6;
   }
   
   .footer {
-    background-color: #ffb100;
-    color: #000;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.95rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .footer div {
+    margin-bottom: 10px;
   }
   
   .footer a {
-    color: #000;
+    color: #ffb100;
     text-decoration: none;
-    font-weight: 600;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      font-size: 0.85rem;
+      padding: 10px;
+    }
   }
   
   .whatsapp-button {
@@ -156,34 +206,173 @@ button {-height: 1.6;
   
   @media (max-width: 768px) {
     .menu {
-      grid-template-columns: 1fr;
-      padding: 1rem;
+      grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+      padding: 10px;
     }
-  
+
+    .menu-item {
+      margin-bottom: 20px; /* Más espacio entre elementos */
+    }
+
     .item img {
       height: 180px;
     }
+
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-menu a {
+      margin: 0; /* Elimina el margen horizontal */
+    }
   }
 
-/* Centrar el mapa y el texto en la página */
+/* Estilo del mapa */
 .map-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Ocupa toda la altura de la ventana */
   text-align: center;
+  padding: 20px;
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
 }
 
 .map-container h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-  text-align: center; /* Centra el texto horizontalmente */
 }
 
 .map-container iframe {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-width: 1200px;
+  height: 450px;
   border: 0;
+  border-radius: 8px;
+}
+
+/* Estilo del carrito */
+.cart {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart li {
+  margin-bottom: 5px;
+}
+
+.cart p {
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Estilo del encabezado */
+.header {
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  text-align: center; /* Centrar contenido */
+  padding: 20px 10px; /* Espaciado interno */
+}
+
+.custom-title {
+  font-size: 48px; /* Tamaño del título */
+  font-weight: bold; /* Texto en negrita */
+  margin: 0; /* Sin margen */
+}
+
+.custom-title .highlight {
+  color: #ffb100; /* Letra "M" en amarillo */
+}
+
+.subtitle {
+  font-size: 20px; /* Tamaño del subtítulo */
+  margin: 5px 0; /* Margen superior e inferior */
+  color: #fff; /* Texto blanco */
+}
+
+.description {
+  font-size: 16px; /* Tamaño de la descripción */
+  margin: 10px 0; /* Margen superior e inferior */
+  font-weight: bold; /* Texto en negrita */
+}
+
+.nav-menu {
+  margin-top: 15px; /* Separación del menú */
+  position: relative;
+}
+
+.nav-menu a {
+  color: #fff; /* Texto blanco */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: bold; /* Texto en negrita */
+  margin: 0 15px; /* Espaciado entre enlaces */
+  transition: color 0.3s ease; /* Transición suave */
+}
+
+.nav-menu a:hover {
+  color: #ffb100; /* Cambiar a amarillo al pasar el mouse */
+}
+
+/* Estilo del menú responsivo */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .menu-links.show {
+    display: flex;
+  }
 }
